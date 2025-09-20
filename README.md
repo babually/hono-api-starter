@@ -33,7 +33,7 @@ A starter template for building fully documented type-safe JSON APIs with Hono a
 Clone this template without git history
 
 ```sh
-npx degit w3cj/hono-open-api-starter my-api
+npx degit babually/hono-api-starter.git my-api
 cd my-api
 ```
 
@@ -53,6 +53,10 @@ Create sqlite db / push schema
 
 ```sh
 pnpm drizzle-kit push
+
+or
+
+pnpm db:push
 ```
 
 Run
@@ -90,15 +94,15 @@ All app routes are grouped together and exported into single type as `AppType` i
 
 ## Endpoints
 
-| Path               | Description              |
-| ------------------ | ------------------------ |
-| GET /doc           | Open API Specification   |
-| GET /reference     | Scalar API Documentation |
-| GET /tasks         | List all tasks           |
-| POST /tasks        | Create a task            |
-| GET /tasks/{id}    | Get one task by id       |
-| PATCH /tasks/{id}  | Patch one task by id     |
-| DELETE /tasks/{id} | Delete one task by id    |
+| Path                  | Description              |
+| ------------------    | ------------------------ |
+| GET /doc              | Open API Specification   |
+| GET /reference        | Scalar API Documentation |
+| GET /v1/tasks         | List all tasks           |
+| POST /v1/tasks        | Create a task            |
+| GET /v1/tasks/{id}    | Get one task by id       |
+| PATCH /v1/tasks/{id}  | Patch one task by id     |
+| DELETE /v1/tasks/{id} | Delete one task by id    |
 
 ## References
 
