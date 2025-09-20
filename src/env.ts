@@ -20,7 +20,7 @@ const EnvSchema = z.object({
 }).superRefine((input, ctx) => {
   if (input.NODE_ENV === "production" && !input.DATABASE_AUTH_TOKEN) {
     ctx.addIssue({
-      code: z.ZodIssueCode.invalid_type,
+      code: "invalid_type",
       expected: "string",
       received: "undefined",
       path: ["DATABASE_AUTH_TOKEN"],
@@ -36,7 +36,11 @@ const { data: env, error } = EnvSchema.safeParse(process.env);
 
 if (error) {
   console.error("❌ Invalid env:");
-  console.error(JSON.stringify(error.flatten().fieldErrors, null, 2));
+  const formatted = error.format();
+  const fieldErrors = Object.fromEntries(
+    Object.entries(formatted).filter(([key]) => key !== "_errors").map(([key, value]) => [key, (value as { _errors: string[] })._errors]),
+  );
+  console.error(JSON.stringify(fieldErrors, null, 2));
   process.exit(1);
 }
 

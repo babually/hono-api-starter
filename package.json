@@ -10,12 +10,16 @@
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix",
     "test": "cross-env NODE_ENV=test vitest",
-    "build": "tsc && tsc-alias"
+    "build": "tsc && tsc-alias",
+    "db:generate": "npx drizzle-kit generate",
+    "db:migrate": "npx drizzle-kit migrate",
+    "db:push": "npx drizzle-kit push",
+    "db:studion": "npx drizzle-kit studio"
   },
   "dependencies": {
     "@hono/node-server": "^1.18.1",
     "@hono/zod-openapi": "^1.0.2",
-    "@libsql/client": "^0.15.10",
+    "@neondatabase/serverless": "^1.0.1",
     "@scalar/hono-api-reference": "^0.9.13",
     "dotenv": "^17.2.1",
     "dotenv-expand": "^12.0.2",

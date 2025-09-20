@@ -12,8 +12,9 @@ const routes = [
   tasks,
 ] as const;
 
+// Group routes under /api/v1.
 routes.forEach((route) => {
-  app.route("/", route);
+  app.route("/v1", route);
 });
 
 export type AppType = typeof routes[number];

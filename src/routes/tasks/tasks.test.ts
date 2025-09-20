@@ -30,7 +30,7 @@ describe("tasks routes", () => {
     const response = await client.tasks.$post({
       json: {
         done: false,
-      },
+      } as any,
     });
     expect(response.status).toBe(422);
     if (response.status === 422) {
